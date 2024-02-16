@@ -1,0 +1,29 @@
+<!-- signup.component.html -->
+********{{isSubmitting$ | async}}*********
+<div class="container">
+  <mat-card class="card">
+    <mat-card-header>
+      <mat-card-title>Sign Up</mat-card-title>
+    </mat-card-header>
+    <br>
+    <mat-card-content>
+      <form [formGroup]="registerForm">
+        <mat-form-field class="full-width" appearance="outline">
+          <input matInput placeholder="Username" formControlName="username" name="username" required>
+        </mat-form-field>
+
+        <mat-form-field class="full-width" appearance="outline">
+          <input matInput type="email" placeholder="Email" formControlName="email" name="email" required>
+        </mat-form-field>
+
+        <mat-form-field class="full-width" appearance="outline">
+          <input matInput type="password" placeholder="Password" formControlName="password" name="password" required>
+        </mat-form-field>
+        <p >
+          <a routerLink='/login' style="text-decoration: none;">Already have an account?</a>
+        </p>
+        <button mat-raised-button color="primary" (click)="signUp()" class="float-end" [disabled]="isSubmitting$ | async">Sign Up</button>
+      </form>
+    </mat-card-content>
+  </mat-card>
+</div>
